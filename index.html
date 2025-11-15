@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garrafa PEAD 500ml | EMBALA</title>
+    <!-- Carregamento do Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configuração do Tailwind para usar a fonte Inter e cores personalizadas -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'emb-darkblue': '#1e3a8a', // Azul Escuro
+                        'emb-red': '#dc2626',      // Vermelho
+                        'emb-green': '#10b981',    // Verde para o WhatsApp
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Estilos personalizados para o layout */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f7f7;
+        }
+        /* Fixa o cabeçalho e garante que o conteúdo comece abaixo dele */
+        .fixed-header {
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        /* Ajuste do padding-top do conteúdo principal para liberar espaço do header */
+        .main-content {
+            padding-top: 64px; /* Altura do header (aprox 56px) + margem de segurança */
+        }
+        /* Estilo para a galeria de cores */
+        .color-option {
+            transition: all 0.2s;
+        }
+        .color-option.selected {
+            border: 3px solid #1e3a8a; /* Azul Escuro */
+            box-shadow: 0 4px 6px rgba(30, 58, 138, 0.3);
+        }
+        /* Oculta as miniaturas desativadas sem ocupar espaço */
+        .color-option.disabled {
+            display: none; 
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header Fixo (Dark Blue) - Altura h-14 -->
+    <header class="fixed-header fixed top-0 left-0 right-0 z-10 bg-white border-b border-gray-100 h-14 flex items-center justify-between px-4 sm:px-8">
+        <!-- Logo da EMPRESA (Placeholder) -->
+        <div class="h-7 w-20 bg-emb-darkblue rounded-lg flex items-center justify-center shadow-md">
+            <span class="text-white text-xs font-bold"> <img src="https://uploads.onecompiler.io/4443f7ggu/4443qnm2z/PHOTO-2025-11-13-18-38-03.jpg"> </span>
+        </div>
+        <!-- Ícone Home (Topo Direito) com link para a Landing Page -->
+        <!-- O link '#' deve ser substituído pelo URL da sua landing page -->
+        <a href="https://embalagarrafas.github.io/EMBALA/" class="text-emb-darkblue hover:text-emb-red transition duration-150 p-2 rounded-full hover:bg-gray-100">
+            <!-- Icone Home (SVG Simples) -->
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0h6m-6 0h-2M9 21h6m-3-4v4"></path>
+            </svg>
+        </a>
+    </header>
+
+    <!-- Conteúdo Principal do Produto -->
+    <main class="main-content min-h-screen container mx-auto px-4 sm:px-6 py-12">
+        
+        <!-- Título e Subtítulo -->
+        <div class="mb-10 text-center">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-emb-darkblue mb-2">Garrafa PEAD 500ml</h1>
+            <p class="text-xl text-gray-600">Embalagem versátil de Polietileno de Alta Densidade (PEAD), tamanho versátil para sucos, leites e produtos de limpeza leves.</p>
+        </div>
+
+        <!-- Seção de Galeria, Specs e Pedido -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+
+            <!-- Coluna 1: Galeria de Imagens e Variações de Cor -->
+            <div class="lg:col-span-2">
+                <!-- Imagem Principal (Atualizada via JS) -->
+                <div id="main-product-image-container" class="mb-6 bg-white p-6 rounded-xl shadow-lg flex justify-center items-center h-96">
+                    <!-- Placeholder URL ajustado para proporção da 500ml e cor Branca (default) -->
+                    <img id="main-product-image" src="https://placehold.co/400x700/1e3a8a/ffffff?text=PEAD+500ml+%28Branca%29" alt="Garrafa PEAD 500ml Branca" class="max-h-full max-w-full rounded-lg object-contain">
+                </div>
+
+                <!-- Galeria de Variações de Cor (Miniaturas) - Branca e Rosa Ativas -->
+                <div class="flex flex-wrap justify-center gap-4 p-4 bg-white rounded-xl shadow-md">
+                    <!-- Miniatura Branca (Ativa e Selecionada por padrão) -->
+                    <div id="option-branca" class="color-option selected cursor-pointer p-1 rounded-lg border-2 border-transparent" data-color="Branca" data-img-url="https://placehold.co/400x700/1e3a8a/ffffff?text=PEAD+500ml+%28Branca%29">
+                        <img src="https://placehold.co/100x175/1e3a8a/ffffff?text=Branca" alt="Garrafa Branca" class="rounded-md w-16 h-28 object-contain">
+                        <p class="text-xs text-center mt-1">Branca</p>
+                    </div>
+                    <!-- Miniatura Transparente (Desativada/Oculta) -->
+                    <div id="option-transparente" class="color-option disabled cursor-pointer p-1 rounded-lg border-2 border-transparent" data-color="Transparente" data-img-url="https://placehold.co/400x700/e0e0e0/333333?text=PEAD+500ml+%28Transp%29">
+                        <img src="https://placehold.co/100x175/e0e0e0/333333?text=Transp" alt="Garrafa Transparente" class="rounded-md w-16 h-28 object-contain">
+                        <p class="text-xs text-center mt-1">Transparente</p>
+                    </div>
+                    <!-- Miniatura Rosa (Ativa) -->
+                    <div id="option-rosa" class="color-option cursor-pointer p-1 rounded-lg border-2 border-transparent" data-color="Rosa" data-img-url="https://placehold.co/400x700/fecaca/9f1239?text=PEAD+500ml+%28Rosa%29">
+                        <img src="https://placehold.co/100x175/fecaca/9f1239?text=Rosa" alt="Garrafa Rosa" class="rounded-md w-16 h-28 object-contain">
+                        <p class="text-xs text-center mt-1">Rosa</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Coluna 2: Especificações Técnicas e Pedido -->
+            <div class="lg:col-span-1 space-y-8">
+                
+                <!-- Especificações Técnicas -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
+                    <h3 class="text-2xl font-semibold text-emb-darkblue mb-4">Detalhes Técnicos</h3>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex justify-between items-center border-b pb-2">
+                            <span class="font-medium">Capacidade:</span>
+                            <span class="font-bold">500ml</span>
+                        </li>
+                        <li class="flex justify-between items-center border-b pb-2">
+                            <span class="font-medium">Material:</span>
+                            <span class="font-bold">PEAD (Polietileno de Alta Densidade)</span>
+                        </li>
+                        <li class="flex flex-col border-b pb-2 pt-2">
+                            <span class="font-medium mb-1">Proporções:</span>
+                            <div class="text-right space-y-0.5 text-sm sm:text-base">
+                                <p>Altura Total: <span class="font-bold">169 mm</span></p>
+                                <p>Diâmetro: <span class="font-bold">65,5 mm</span></p>
+                                <p>Altura do Rótulo: <span class="font-bold">68 mm</span></p>
+                            </div>
+                        </li>
+                        <li class="flex justify-between items-center">
+                            <span class="font-medium">Unidades por Pacote/Saco:</span>
+                            <span class="font-bold">180 unidades</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Seção de Pedido / CTA -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
+                    <h3 class="text-2xl font-semibold text-emb-darkblue mb-4">Faça seu Pedido</h3>
+
+                    <!-- Preço por Pacote -->
+                    <p class="text-xl font-medium mb-3">
+                        Preço por Pacote (180 un.): <div></div>
+                        <span id="price-display" class="text-emb-red text-3xl font-extrabold ml-2">R$ 155,00</span>
+                    </p>
+
+                    <!-- Seleção de Cor da Garrafa -->
+                    <div class="mb-4">
+                        <label for="selected-color" class="block text-sm font-medium text-gray-700">Cor da Garrafa (Corpo)</label>
+                        <input type="text" id="selected-color" value="Branca" readonly class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 bg-gray-50 font-bold text-emb-darkblue">
+                    </div>
+
+                    <!-- Seleção de Cor da Tampa -->
+                    <div class="mb-4">
+                        <label for="cap-color" class="block text-sm font-medium text-gray-700">Cor da Tampa (Inclusa)</label>
+                        <select id="cap-color" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-3 border focus:border-emb-darkblue focus:ring focus:ring-emb-darkblue/50">
+                            <option value="Vermelha">Vermelha</option>
+                            <option value="Verde">Verde</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Seleção de Quantidade (Pacotes) -->
+                    <div class="mb-6">
+                        <label for="quantity" class="block text-sm font-medium text-gray-700">Número de Pacotes/Sacos (Mín. 1)</label>
+                        <input type="number" id="quantity" value="1" min="1" step="1" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-3 border focus:border-emb-darkblue focus:ring focus:ring-emb-darkblue/50">
+                    </div>
+
+                    <!-- Botão CTA WhatsApp -->
+                    <button id="cta-whatsapp" class="w-full bg-emb-red hover:bg-red-700 text-white font-bold py-4 px-4 rounded-lg shadow-xl transition duration-300 transform hover:scale-[1.01] active:scale-[0.99] focus:outline-none focus:ring-4 focus:ring-emb-red/50">
+                        <span class="flex items-center justify-center">
+                            <!-- Ícone do WhatsApp no botão CTA -->
+                            <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.031 2.316c-5.301 0-9.602 4.301-9.602 9.602 0 1.685.432 3.324 1.259 4.757l-.872 3.197 3.33-.876a9.549 9.549 0 004.885 1.257c5.301 0 9.602-4.301 9.602-9.602 0-5.301-4.301-9.602-9.602-9.602zM17.5 13.59c-.21 0-.39-.06-.54-.18s-.24-.28-.27-.47l-.09-.38c0-.03 0-.07 0-.1c.03-.13.04-.26.04-.4c0-.03-.01-.06-.01-.1-.01-.13-.03-.26-.06-.39s-.06-.25-.13-.37c-.07-.12-.16-.21-.28-.29s-.25-.14-.4-.17c-.15-.03-.31-.03-.49-.03h-.03c-.15 0-.3-.02-.45-.05-.15-.03-.3-.07-.46-.12s-.31-.1-.47-.18c-.16-.08-.31-.17-.46-.29-.15-.12-.3-.26-.45-.41s-.27-.32-.38-.51c-.1-.19-.15-.4-.15-.65 0-.09 0-.17.02-.26.02-.09.04-.17.07-.25s.08-.16.14-.23c.06-.07.13-.13.22-.17.09-.04.18-.06.29-.06.09 0 .17.02.24.06.07.04.14.1.2.19.06.09.11.19.14.32.03.13.05.27.05.43 0 .09-.01.17-.03.24-.02.07-.05.14-.09.2s-.08.11-.14.16c-.06.05-.13.08-.22.1-.09.02-.19.03-.3.03h-.06c-.14 0-.25.02-.34.07-.09.05-.17.13-.22.25s-.09.28-.11.45c-.02.17-.02.37 0 .6.03.22.08.45.16.68.08.23.18.45.3.67s.26.43.43.62c.17.19.35.37.55.53s.42.3.66.45c.24.15.49.28.75.38.26.1.53.15.82.15.11 0 .21-.01.31-.02.1-.01.19-.04.28-.08s.18-.08.27-.14c.09-.06.18-.13.26-.22.08-.09.15-.19.21-.31.06-.12.11-.26.15-.43s.04-.37.04-.6zm-4.32-6.57c.07-.09.1-.19.1-.3s-.03-.21-.09-.32c-.06-.11-.15-.2-.27-.27s-.26-.1-.43-.1h-.03c-.22 0-.42.06-.59.18s-.27.27-.33.47l-.09.38c0 .03 0 .07 0 .1.03.13.04.26.04.4 0 .03-.01.06-.01.1-.01.13-.03.26-.06.39s-.06.25-.13.37c-.07.12-.16.21-.28.29s-.25.14-.4.17c-.15.03-.31.03-.49.03h-.03c-.15 0-.3-.02-.45-.05-.15-.03-.3-.07-.46-.12s-.31-.1-.47-.18c-.16-.08-.31-.17-.46-.29-.15-.12-.3-.26-.45-.41s-.27-.32-.38-.51c-.1-.19-.15-.4-.15-.65 0-.09 0-.17.02-.26.02-.09.04-.17.07-.25s.08-.16.14-.23c.06-.07.13-.13.22-.17.09-.04.18-.06.29-.06.09 0 .17.02.24.06.07.04.14.1.2.19.06.09.11.19.14.32.03.13.05.27.05.43 0 .09-.01.17-.03.24-.02.07-.05.14-.09.2s-.08.11-.14.16c-.06.05-.13.08-.22.1-.09.02-.19.03-.3.03h-.06c-.14 0-.25.02-.34.07-.09.05-.17.13-.22.25s-.09.28-.11.45c-.02.17-.02.37 0 .6.03.22.08.45.16.68.08.23.18.45.3.67s.26.43.43.62c.17.19.35.37.55.53s.42.3.66.45c.24.15.49.28.75.38.26.1.53.15.82.15.11 0 .21-.01.31-.02.1-.01.19-.04.28-.08s.18-.08.27-.14c.09-.06.18-.13.26-.22.08-.09.15-.19.21-.31.06-.12.11-.26.15-.43s.04-.37.04-.6z"/>
+                            </svg>
+                            SOLICITAR ORÇAMENTO / PEDIDO VIA WHATSAPP
+                        </span>
+                    </button>
+                    <!-- Mensagens de Feedback -->
+                    <div id="success-message" class="hidden mt-4 p-3 bg-green-100 border border-green-400 text-green-700 rounded-lg text-center font-medium">
+                        Mensagem gerada! Redirecionando para o WhatsApp...
+                    </div>
+                    <div id="error-message" class="hidden mt-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded-lg text-center font-medium">
+                        <!-- Mensagem de erro aparece aqui -->
+                    </div>
+                </div>
+
+                <!-- Nova Seção de Informações Adicionais (Pagamento e Logística) -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
+                    <h3 class="text-xl font-semibold text-emb-darkblue mb-3 border-b pb-2">Informações Importantes</h3>
+                    <div class="space-y-3 text-sm text-gray-700">
+                        <p class="font-medium">Pagamento:</p>
+                        <ul class="list-disc list-inside ml-2">
+                            <li>Aceitamos somente <span class="font-bold text-emb-darkblue">PIX</span>, <span class="font-bold text-emb-darkblue">Dinheiro</span> ou <span class="font-bold text-emb-darkblue">Transferência Bancária</span>.</li>
+                        </ul>
+                        <p class="font-medium">Logística:</p>
+                        <ul class="list-disc list-inside ml-2">
+                            <li>Não trabalhamos com entregas. O pedido deve ser <span class="font-bold text-emb-red">retirado</span> em nosso endereço.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // Variáveis atualizadas para a Garrafa PEAD 500ml
+        const productId = "Garrafa PEAD 500ml";
+        const whatsappNumber = "5541999999999"; 
+        const pricePerPackage = 155.00; // R$ 155,00 por pacote
+        const unitsPerPackage = 180;     // 180 unidades por pacote
+        const productHeight = "169 mm"; // Altura do produto atualizada
+
+        // Elementos DOM
+        const mainImage = document.getElementById('main-product-image');
+        const colorOptions = document.querySelectorAll('.color-option');
+        const selectedColorInput = document.getElementById('selected-color');
+        const capColorSelect = document.getElementById('cap-color');
+        const quantityInput = document.getElementById('quantity');
+        const ctaButton = document.getElementById('cta-whatsapp');
+        const successMessage = document.getElementById('success-message');
+        const errorMessage = document.getElementById('error-message');
+
+        // Função para atualizar a seleção de cor da garrafa
+        function updateColorSelection(selectedElement) {
+            colorOptions.forEach(option => {
+                option.classList.remove('selected', 'border-emb-darkblue', 'shadow-lg');
+                option.classList.add('border-transparent');
+            });
+
+            // Garante que só opções ativas podem ser selecionadas
+            if (!selectedElement.classList.contains('disabled')) {
+                selectedElement.classList.add('selected', 'border-emb-darkblue', 'shadow-lg');
+                selectedElement.classList.remove('border-transparent');
+
+                const newImgUrl = selectedElement.getAttribute('data-img-url');
+                const newColor = selectedElement.getAttribute('data-color');
+                
+                mainImage.src = newImgUrl;
+                mainImage.alt = `${productId} ${newColor}`;
+                selectedColorInput.value = newColor;
+            }
+        }
+
+        // Adiciona listeners aos botões de variação
+        colorOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                updateColorSelection(option);
+            });
+        });
+
+        // Evento do botão CTA (Solicitar Orçamento)
+        ctaButton.addEventListener('click', () => {
+            const color = selectedColorInput.value; // Cor da Garrafa
+            const packages = parseInt(quantityInput.value, 10); // Número de Pacotes
+            const capColor = capColorSelect.value; // Cor da Tampa
+            
+            // Esconde mensagens de feedback anteriores
+            successMessage.classList.add('hidden');
+            errorMessage.classList.add('hidden');
+
+            // Validação de Pacotes
+            if (packages < 1 || isNaN(packages)) {
+                errorMessage.textContent = "Erro: Por favor, insira um número válido de pacotes (mínimo de 1).";
+                errorMessage.classList.remove('hidden');
+                return;
+            }
+
+            // Cálculo dos valores
+            const totalUnits = packages * unitsPerPackage;
+            const totalCost = (packages * pricePerPackage).toFixed(2).replace('.', ',');
+            const productSize = `500ml (${productHeight} de altura)`; 
+
+            // Monta a mensagem pré-preenchida
+            const message = `Olá, gostaria de solicitar um orçamento para o seguinte pedido:\n\n*Produto:* ${productId} (${productSize})\n*Cor da Garrafa:* ${color}\n*Cor da Tampa:* ${capColor}\n*Número de Pacotes (180 un./pacote):* ${packages} sacos (Total: ${totalUnits} unidades)\n*Valor Total Estimado:* R$ ${totalCost}\n\nPor favor, confirme a disponibilidade e o procedimento para retirada.`;
+            
+            // Codifica a mensagem para a URL
+            const encodedMessage = encodeURIComponent(message);
+            
+            // Cria o link do WhatsApp
+            const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+            // Exibe a mensagem de sucesso e redireciona
+            successMessage.classList.remove('hidden');
+            
+            // Redireciona após um pequeno atraso para o usuário ver a mensagem
+            setTimeout(() => {
+                window.open(whatsappLink, '_blank');
+            }, 500);
+        });
+
+        // Inicialização: Garante que o estado inicial (Branca) está aplicado (Alterado de Transparente para Branca)
+        document.addEventListener('DOMContentLoaded', () => {
+            const initialOption = document.getElementById('option-branca');
+            if(initialOption) {
+                updateColorSelection(initialOption);
+            }
+        });
+    </script>
+
+</body>
+</html>
