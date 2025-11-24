@@ -212,7 +212,7 @@
     <script>
         // Variáveis atualizadas para a Garrafa PEAD 500ml
         const productId = "Garrafa PEAD 500ml";
-        const whatsappNumber = "5541999999999"; 
+        const whatsappNumber = "5599982360191"; 
         const pricePerPackage = 155.00; // R$ 155,00 por pacote
         const unitsPerPackage = 180;     // 180 unidades por pacote
         const productHeight = "169 mm"; // Altura do produto atualizada
@@ -275,7 +275,7 @@
             // Cálculo dos valores
             const totalUnits = packages * unitsPerPackage;
             const totalCost = (packages * pricePerPackage).toFixed(2).replace('.', ',');
-            const productSize = `500ml (${productHeight} de altura)`; 
+            const productSize = ``; 
 
             // Monta a mensagem pré-preenchida
             const message = `Olá, gostaria de solicitar um orçamento para o seguinte pedido:\n\n*Produto:* ${productId} (${productSize})\n*Cor da Garrafa:* ${color}\n*Cor da Tampa:* ${capColor}\n*Número de Pacotes (180 un./pacote):* ${packages} sacos (Total: ${totalUnits} unidades)\n*Valor Total Estimado:* R$ ${totalCost}\n\nPor favor, confirme a disponibilidade e o procedimento para retirada.`;
@@ -305,4 +305,5 @@
     </script>
 
 </body>
+
 </html>
